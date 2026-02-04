@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Filipino Food Recipes - Your gateway to authentic Filipino and international cuisine">
+    <title>Home - Filipino Food Recipes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffcc99;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #4b2e2e;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #d2691e;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .nav-links a:hover {
+            color: #d2691e;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #4b2e2e;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 120px 20px;
+            background-image: url('https://i.imgur.com/qycHZEq.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 40px auto;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            color: #fff;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(75, 46, 46, 0.65);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-style: italic;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .description {
+            font-size: 1.1em;
+            color: #fff;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: #ffd700;
+            color: #4b2e2e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #ffbf00;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: #ffcc99;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #4b2e2e;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .stats {
+            background: #ffcc99;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            color: #d2691e;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #ffcc99;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+
+        footer strong {
+            color: #4b2e2e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffcc99;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            body {
+                padding-top: 70px;
+            }
+
+            .hero-section {
+                margin: 20px;
+                padding: 90px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .description {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                font-size: 1.1em;
+                padding: 15px 35px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                margin: 30px auto;
+            }
+
+            .stats {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+
+            .stat-number {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .cta-button {
+                display: block;
+                margin: 0 auto;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Filipino<span>Recipes</span></a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Activity2.html">All Recipes</a></li>
+                <li><a href="aboutus.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Filipino Food Recipes</h1>
+            <p class="subtitle">Discover the Rich Flavors of the Philippines</p>
+            <p class="description">
+                Welcome to our culinary journey through authentic Filipino cuisine and beloved international favorites. 
+                Each recipe is carefully crafted with detailed instructions, making it easy for anyone to recreate 
+                these delicious dishes at home. From traditional family recipes to modern favorites, we bring you 
+                the best of Filipino cooking.
+            </p>
+            <a href="Activity2.html" class="cta-button">Explore Recipes</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <h3>Easy to Follow</h3>
+            <p>Step-by-step instructions that make cooking simple and enjoyable for everyone.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Authentic Recipes</h3>
+            <p>Traditional Filipino recipes passed down through generations, perfected over time.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Time Efficient</h3>
+            <p>Clear prep and cooking times to help you plan your meals perfectly.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Tried & Tested</h3>
+            <p>Every recipe has been tested to ensure delicious results every time.</p>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Filipino Food Recipes Collection</strong></p>
+        <p>Web Systems and Technologies Project II</p>
+        <p>Created by: <strong>Jms Zndr P.C.</strong></p>
+        <p style="margin-top: 10px; font-size: 0.99em;">
+            Email: jzp.cabuang@gmail.com or Contact us at: +63 912 345 6789
+        </p>
+        <p style="margin-top: 15px;">
+            <a href="Activity2.html" style="color: #115823; text-decoration: none; margin: 0 10px;">Recipes:</a>
+            <a href="aboutus.html" style="color: #115823; text-decoration: none; margin: 0 10px;">About us:</a>
+        </p>
+        <p style="font-size: 0.8em; color: #999; margin-top: 10px;">
+            &copy; 2026 all rights reserved
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

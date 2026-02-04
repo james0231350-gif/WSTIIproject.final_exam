@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Filipino Food Recipes - Learn more about our mission and the creator">
+    <title>About - Filipino Food Recipes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #4b2e2e;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #d2691e;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .nav-links a:hover {
+            color: #d2691e;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #4b2e2e;
+        }
+
+        header {
+            background-color: #ffcc99;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4b2e2e;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4b2e2e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #ffcc99;
+            padding-bottom: 10px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .profile-section {
+            background-color: #fff8f0;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #d2691e;
+        }
+
+        .profile-section h3 {
+            color: #4b2e2e;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .mission-box {
+            background-color: #e8f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+
+        .mission-box p {
+            color: #2c3e50;
+            font-style: italic;
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #666;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-buttons a {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #d2691e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #a0522d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        footer strong {
+            color: #4b2e2e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            body {
+                padding-top: 90px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            header {
+                padding: 30px 15px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .nav-buttons a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Filipino<span>Recipes</span></a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="Activity2.html">All Recipes</a></li>
+                <li><a href="aboutus.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>About Us:</h1>
+    </header>
+
+    <div class="container">
+        <h2>About This Website:</h2>
+        <p>
+            Welcome to Filipino Food Recipes, a carefully curated collection of authentic Filipino dishes 
+            and beloved international favorites. This website was created as a Web Systems and Technologies 
+            project to showcase the rich culinary heritage of the Philippines and make these wonderful 
+            recipes accessible to everyone.
+        </p>
+
+        <div class="mission-box">
+            <p>
+                <strong>Our Mission:</strong> To preserve and share authentic Filipino recipes while making 
+                cooking accessible and enjoyable for everyone, from beginners to experienced home cooks.
+            </p>
+        </div>
+
+        <h2>What You'll Find Here:</h2>
+        <p>
+            Our website features a diverse selection of recipes that represent the heart of Filipino cuisine:
+        </p>
+        <ul>
+            <li><strong>Traditional Filipino Dishes</strong> - From the iconic Chicken Adobo to the rich and creamy Ginataang Dahon ng Gabi</li>
+            <li><strong>Filipino-Style Adaptations</strong> - Like our sweet Filipino spaghetti that brings a unique twist to an Italian classic</li>
+            <li><strong>Breakfast Favorites</strong> - Including fluffy pancakes and savory fried rice</li>
+            <li><strong>Detailed Instructions</strong> - Each recipe includes step-by-step instructions, prep time, cooking time, and serving sizes</li>
+        </ul>
+
+        <div class="profile-section">
+            <h3>About the Creator:</h3>
+            <p>
+                This website was created by <strong>James Zander P. Cabuang</strong> as part of a 
+                Web Systems and Technologies II project. The goal was to combine technical skills 
+                in web development with a passion for Filipino cuisine, resulting in a functional and 
+                visually appealing recipe website.
+            </p>
+            <p>
+                Through this project, I aimed to demonstrate proficiency in HTML, CSS, responsive design, 
+                and user experience principles while celebrating the flavors that make Filipino food special.
+            </p>
+        </div>
+
+        <h2>Why Filipino Food?</h2>
+        <p>
+            Filipino cuisine is a beautiful blend of indigenous traditions and influences from Spanish, 
+            Chinese, American, and other cultures. Each dish tells a story of history, family, and community. 
+            From the tangy and savory adobo to the sweet and festive spaghetti served at celebrations, 
+            Filipino food brings people together.
+        </p>
+        <p>
+            These recipes have been passed down through generations, refined in home kitchens, and shared 
+            at family gatherings. By preserving and sharing them here, we hope to keep these culinary 
+            traditions alive and introduce them to new audiences.
+        </p>
+
+        <h2>Project Information:</h2>
+        <p>
+            <strong>Subject:</strong> Web Systems and Technologies II<br>
+            <strong>Academic Year:</strong> 2025-2026<br>
+        </p>
+        
+        <h2>Get in Touch:</h2>
+        <p>
+           <strong>Have questions, suggestions, or just want to share your cooking experience? Feel free to reach out!</strong>
+        </p>
+        <p>
+            <strong>Email us to:</strong> jzp.cabuang@gmail.com<br>
+            <strong>Contact us at:</strong> +63 912 345 6789
+        </p>
+
+        <div class="nav-buttons">
+            <a href="homepage.html">Back to Home</a>
+            <a href="Activity2.html">View All Recipes</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Filipino Food Recipes Collection</strong></p>
+        <p><strong>BINALATONGAN COMMUNITY COLLEGE</strong></p>
+        <p>Address: Brgy.Ilang,San Carlos City, 2420 Pangasinan</p>
+        <p>Web Systems and Technologies Project II</p>
+        <p>Created by: Jms Zndr P.C.</p>
+        <p style="margin-top: 10px; font-size: 1.0em;">
+            Email: jzp.cabuang@gmail.com or Contact us at: +63 912 345 6789
+        </p>
+        <p style="font-size: 0.8em; color: #999; margin-top: 10px;">
+            &copy; 2026 all rights reserved
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
